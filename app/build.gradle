@@ -1,0 +1,54 @@
+apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda'
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion "24.0.3"
+
+    defaultConfig {
+        applicationId "com.qxl.mvpproject"
+        minSdkVersion 17
+        targetSdkVersion 24
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    dataBinding {
+        enabled = true //开启databinding
+    }
+
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:24.2.1'
+
+    //retrofit2 + rxjava
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'           //这个是retrofit的依赖库
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'     //<span style="font-family: Arial, Helvetica, sans-serif;">这个是retrofit对gson的支持，可用gson的方式来解析json数据</span>
+    compile 'io.reactivex.rxjava2:rxjava:2.0.0-RC2'                        //这个包可以不加，上面一个就包含了
+    compile 'io.reactivex.rxjava2:rxandroid:2.0.0-RC1'                    //这个rxjava对android的扩展，代码中AndroidSchedulers类将引用到
+    compile 'com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0-RC2' //这个是retrofit对rxjava异步任务的扩展支持
+    compile 'com.squareup.okhttp3:logging-interceptor:3.1.2'
+//    compile 'com.jakewharton.rxbinding:rxbinding:1.0.0'//Rx绑定控件
+    compile 'com.tbruyelle.rxpermissions:rxpermissions:0.7.0@aar'// https://github.com/yingshirun/RxPermissions 动态权限申请框架
+//    compile 'com.trello:rxlifecycle:0.3.0'//rx生命周期管理
+//    compile 'com.trello:rxlifecycle-components:0.3.0'//rx生命周期管理
+    //recyclerView库
+    compile 'com.android.support:recyclerview-v7:24.2.1'
+    //万能adapter 项目地址:https://github.com/qiushuilingxing/all-base-adapter
+    compile 'com.github.mcxtzhang:all-base-adapter:V1.5.2'
+    //引入design包,这里是为tabLayout引入
+    compile 'com.android.support:design:24.2.1'
+
+}
