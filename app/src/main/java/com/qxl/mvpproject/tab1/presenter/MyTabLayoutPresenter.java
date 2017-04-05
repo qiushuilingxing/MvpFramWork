@@ -53,7 +53,7 @@ public class MyTabLayoutPresenter extends BasePresenter<MyTabLayoutActivity,Base
         tabTextList.add("芦柑");
         tabTextList.add("樱桃");
         tabTextList.add("小西红柿");
-        tabTextList.add("青枣");
+        tabTextList.add("丑橘");
         return tabTextList;
     }
 
